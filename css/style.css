@@ -623,46 +623,110 @@ a:hover {
   text-decoration: underline;
 }
 
+h3,
+h4,
+h5 {
+  font-size: 18px;
+}
+
+h3 {
+  font-weight: 900;
+}
+
+h4 {
+  font-weight: 700;
+}
+
+h5 {
+  font-weight: 500;
+}
+
 .item-active {
   color: #e37d11;
   text-decoration: underline;
 }
 
 .header {
-  height: 80vh;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 .container {
-  width: 80%;
+  width: 75%;
   margin: 0 auto;
 }
 
 .header-nav-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.header-nav-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: #454545;
+  z-index: 3;
+}
+
+.header-nav-body {
+  position: relative;
   font-size: 18px;
   font-weight: 500;
   font-style: normal;
-  background-color: #454545;
-  width: 11%;
   padding-top: 50px;
   color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 3;
 }
 
 .logo {
   text-align: center;
   font-weight: 700;
   font-style: normal;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
+}
+
+a.logo:hover {
+  text-decoration: none;
 }
 
 .orange {
   color: #e37d11;
 }
 
+a.logo:hover .br {
+  color: #fff;
+}
+
 .br {
-  padding-left: 25%;
+  padding-left: 20%;
+}
+
+.header__burger {
+  display: none;
+}
+
+.header__burger.header-active::before {
+  top: 9px;
+}
+
+.header__burger.header-active::after {
+  bottom: 9px;
 }
 
 .header-menu {
@@ -679,6 +743,8 @@ a:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .header-menu__item:not(:last-child) {
@@ -687,7 +753,7 @@ a:hover {
 
 .title-wrap {
   margin: 0;
-  background: url("../images/rainbow_texture679.jpg") no-repeat;
+  background: url("../images/growing-willow-on-metal-grate-near-plastered-wall-of-house-3874004.jpg") no-repeat;
   width: 100%;
   background-size: cover;
   position: relative;
@@ -699,7 +765,7 @@ a:hover {
   font-weight: 800;
   color: #fff;
   margin-top: 80px;
-  margin-left: 30px;
+  margin-left: 170px;
 }
 
 .anchor {
@@ -724,7 +790,7 @@ a:hover {
 }
 
 section {
-  margin: 80px 0;
+  margin: 40px 0 0;
 }
 
 .title {
@@ -733,6 +799,11 @@ section {
 
 .text {
   margin-bottom: 20px;
+  color: #454545;
+}
+
+.text-answer {
+  font-style: italic;
 }
 
 .portfolio__photo {
@@ -747,33 +818,34 @@ section {
   position: relative;
 }
 
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
 .project {
   margin-bottom: 40px;
 }
 
 .project-img {
-  width: 520px;
-}
-
-.text {
-  color: #454545;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 500px;
+  height: 312px;
 }
 
 .contact__links {
   color: #454545;
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .footer {
@@ -817,20 +889,173 @@ section {
   display: block;
 }
 
+@media (max-width: 1024px) {
+  .container {
+    width: 70%;
+  }
+}
+
 @media (max-width: 769px) {
-  .mt {
-    margin-top: 0;
+  body.lock {
+    overflow: hidden;
+  }
+
+  .logo {
+    margin-bottom: 40px;
+  }
+
+  .header__burger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    margin: 0 auto;
+    z-index: 3;
+  }
+
+  .header__burger::before,
+  .header__burger::after {
+    content: '';
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+  }
+
+  .header__burger::before {
+    top: 0;
+  }
+
+  .header__burger::after {
+    bottom: 0;
+  }
+
+  .header__burger.header-active::before {
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+
+  .header__burger.header-active::after {
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+
+  .header__burger.header-active span {
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
+  }
+
+  .header__burger span {
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 9px;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+  }
+
+  .header-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: #454545e0;
+    -webkit-transition: all 0.6s ease-in 0s;
+    -o-transition: all 0.6s ease-in 0s;
+    transition: all 0.6s ease-in 0s;
+  }
+
+  .header-menu.header-active {
+    left: 0;
+  }
+
+  .header-menu__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .main-title {
+    margin-left: 100px;
+  }
+
+  section {
+    margin: 20px 0 0;
   }
 
   .project-img {
     width: 100%;
+    height: 360px;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-title {
+    font-size: 36px;
+    margin-top: 40px;
+  }
+
+  .project-img {
+    height: 212px;
+  }
+
+  .wrap-footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .logo-footer {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .main-title {
+    margin-left: 70px;
+  }
+}
+
+@media (max-width: 320px) {
+  .main-title {
+    font-size: 28px;
+  }
+
+  .footer-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .footer-links__item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
 
 @media (max-width: 1310px) and (min-width: 980px) {
   .project-img {
-    width: 390px;
+    width: 350px;
+    height: 212px;
   }
 }
 
-.webp .title-wrap { background: url(../images/rainbow_texture679.webp) no-repeat; }
+.webp .title-wrap { background: url(../images/growing-willow-on-metal-grate-near-plastered-wall-of-house-3874004.webp) no-repeat; }

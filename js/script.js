@@ -21,4 +21,17 @@ $(document).ready(function () {
   //   $('.item-active').toggleClass('item-active');
   //   $(this).toggleClass('item-active');
   // });
+
+  $('.header__burger').click(function (event) {
+    $('.header__burger, .header-menu').toggleClass('header-active');
+    $('body').toggleClass('lock');
+  });
+});
+// плавный скролл по якорным ссылкам
+$(function () {
+  $('a[href^="#"]').click(function () {
+    var target = $(this).attr('href');
+    $('html, body').animate({ scrollTop: $(target).offset().top }, 800); //800 - длительность скроллинга в мс
+    return false;
+  });
 });
