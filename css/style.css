@@ -701,16 +701,41 @@ h5 {
   margin-bottom: 100px;
 }
 
-a.logo:hover {
+a.logo.header-menu__item:hover {
+  text-decoration: none;
+}
+
+a.logo.header-menu__item.item-active {
   text-decoration: none;
 }
 
 .orange {
   color: #e37d11;
+  -webkit-transition: ease-in 0.8s;
+  -o-transition: ease-in 0.8s;
+  transition: ease-in 0.8s;
+}
+
+.br {
+  -webkit-transition: ease-in 0.8s;
+  -o-transition: ease-in 0.8s;
+  transition: ease-in 0.8s;
+}
+
+a.logo:hover .orange {
+  color: #fff;
+}
+
+a.logo.header-menu__item.item-active .orange {
+  color: #fff;
 }
 
 a.logo:hover .br {
-  color: #fff;
+  color: #e37d11;
+}
+
+a.logo.header-menu__item.item-active .br {
+  color: #e37d11;
 }
 
 .br {

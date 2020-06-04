@@ -8,23 +8,16 @@ $(document).ready(function () {
     $(activeContent).toggleClass('visible');
     $('.item-active').toggleClass('item-active');
     $(this).toggleClass('item-active');
+    $('.header__burger, .header-menu').toggleClass('header-active');
   });
-
-  // let footerItem = $('.footer-menu__item');
-
-  // footerItem.on('click', function (event) {
-  //   console.log(event);
-  //   event.preventDefault();
-  //   let activeContent = $(this).attr('href');
-  //   $('.visible').toggleClass('visible');
-  //   $(activeContent).toggleClass('visible');
-  //   $('.item-active').toggleClass('item-active');
-  //   $(this).toggleClass('item-active');
-  // });
 
   $('.header__burger').click(function (event) {
     $('.header__burger, .header-menu').toggleClass('header-active');
     $('body').toggleClass('lock');
+  });
+
+  $('.header-menu').click(function (event) {
+    $('.header__burger, .header-menu').toggleClass('header-active');
   });
 });
 // плавный скролл по якорным ссылкам
