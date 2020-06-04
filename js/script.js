@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   $('.header__burger').click(function (event) {
     $('.header__burger, .header-menu').toggleClass('header-active');
-    $('body').toggleClass('lock');
+    // $('body').toggleClass('lock');
   });
 
   $('.header-menu').click(function (event) {
